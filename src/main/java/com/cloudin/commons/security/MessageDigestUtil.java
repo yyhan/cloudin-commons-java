@@ -1,6 +1,6 @@
 package com.cloudin.commons.security;
 
-import com.cloudin.commons.string.BytesUtil;
+import com.cloudin.commons.util.Bytes;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -68,7 +68,7 @@ public enum MessageDigestUtil {
         if (null == txt) {
             return null;
         }
-        return BytesUtil.toHexLowerString(digestBytes(txt.getBytes()));
+        return Bytes.toHexLowerString(digestBytes(txt.getBytes()));
     }
 
 
@@ -84,7 +84,7 @@ public enum MessageDigestUtil {
             return null;
         }
         try {
-            return BytesUtil.toHexLowerString(digestBytes(txt.getBytes(charset)));
+            return Bytes.toHexLowerString(digestBytes(txt.getBytes(charset)));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
@@ -120,6 +120,6 @@ public enum MessageDigestUtil {
         if (null == bytes) {
             return null;
         }
-        return BytesUtil.toHexLowerString(digestBytes(bytes));
+        return Bytes.toHexLowerString(digestBytes(bytes));
     }
 }

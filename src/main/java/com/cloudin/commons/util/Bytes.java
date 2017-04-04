@@ -1,9 +1,10 @@
-package com.cloudin.commons.string;
+package com.cloudin.commons.util;
 
 /**
+ * byte相关工具方法
  * Created by YFHan on 2017/4/3 0003.
  */
-public class BytesUtil {
+public class Bytes {
 
     public final static char[] hexOfLower;
     public final static char[] hexOfUpper;
@@ -86,4 +87,5 @@ public class BytesUtil {
         }
         return builder.toString();
     }
+
 }

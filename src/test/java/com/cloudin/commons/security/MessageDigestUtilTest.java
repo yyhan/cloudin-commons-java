@@ -1,6 +1,6 @@
 package com.cloudin.commons.security;
 
-import com.cloudin.commons.string.BytesUtil;
+import com.cloudin.commons.util.Bytes;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -22,11 +22,11 @@ public class MessageDigestUtilTest {
         assertNull(MessageDigestUtil.MD5.digestBytes(null));
         assertNull(MessageDigestUtil.MD5.digestBytesToString(null));
 
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.MD5.digest(sourceTxt)));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.MD5.digest(sourceTxt, "UTF-8")));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.MD5.digest(sourceTxt)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.MD5.digest(sourceTxt, "UTF-8")));
         assertEquals(expectedTxt, MessageDigestUtil.MD5.digestToString(sourceTxt));
         assertEquals(expectedTxt, MessageDigestUtil.MD5.digestToString(sourceTxt, "UTF-8"));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.MD5.digestBytes(sourceTxtBytes)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.MD5.digestBytes(sourceTxtBytes)));
         assertEquals(expectedTxt, MessageDigestUtil.MD5.digestBytesToString(sourceTxtBytes));
 
     }
@@ -43,11 +43,11 @@ public class MessageDigestUtilTest {
         assertNull(MessageDigestUtil.SHA1.digestBytes(null));
         assertNull(MessageDigestUtil.SHA1.digestBytesToString(null));
 
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA1.digest(sourceTxt)));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA1.digest(sourceTxt, "UTF-8")));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA1.digest(sourceTxt)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA1.digest(sourceTxt, "UTF-8")));
         assertEquals(expectedTxt, MessageDigestUtil.SHA1.digestToString(sourceTxt));
         assertEquals(expectedTxt, MessageDigestUtil.SHA1.digestToString(sourceTxt, "UTF-8"));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA1.digestBytes(sourceTxtBytes)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA1.digestBytes(sourceTxtBytes)));
         assertEquals(expectedTxt, MessageDigestUtil.SHA1.digestBytesToString(sourceTxtBytes));
     }
 
@@ -63,11 +63,11 @@ public class MessageDigestUtilTest {
         assertNull(MessageDigestUtil.SHA256.digestBytes(null));
         assertNull(MessageDigestUtil.SHA256.digestBytesToString(null));
 
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA256.digest(sourceTxt)));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA256.digest(sourceTxt, "UTF-8")));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA256.digest(sourceTxt)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA256.digest(sourceTxt, "UTF-8")));
         assertEquals(expectedTxt, MessageDigestUtil.SHA256.digestToString(sourceTxt));
         assertEquals(expectedTxt, MessageDigestUtil.SHA256.digestToString(sourceTxt, "UTF-8"));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA256.digestBytes(sourceTxtBytes)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA256.digestBytes(sourceTxtBytes)));
         assertEquals(expectedTxt, MessageDigestUtil.SHA256.digestBytesToString(sourceTxtBytes));
     }
 
@@ -83,11 +83,11 @@ public class MessageDigestUtilTest {
         assertNull(MessageDigestUtil.SHA512.digestBytes(null));
         assertNull(MessageDigestUtil.SHA512.digestBytesToString(null));
 
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA512.digest(sourceTxt)));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA512.digest(sourceTxt, "UTF-8")));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA512.digest(sourceTxt)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA512.digest(sourceTxt, "UTF-8")));
         assertEquals(expectedTxt, MessageDigestUtil.SHA512.digestToString(sourceTxt));
         assertEquals(expectedTxt, MessageDigestUtil.SHA512.digestToString(sourceTxt, "UTF-8"));
-        assertEquals(expectedTxt, BytesUtil.toHexLowerString(MessageDigestUtil.SHA512.digestBytes(sourceTxtBytes)));
+        assertEquals(expectedTxt, Bytes.toHexLowerString(MessageDigestUtil.SHA512.digestBytes(sourceTxtBytes)));
         assertEquals(expectedTxt, MessageDigestUtil.SHA512.digestBytesToString(sourceTxtBytes));
     }
 
