@@ -25,11 +25,12 @@ public class AESTest {
         String encryptsBase64 = Base64.getEncoder().encodeToString(encrypts);
 
         assertEquals(sourceTxt, new String(AES.decrypt(encrypts, password.getBytes("UTF-8"))));
-        assertEquals(sourceTxt, new String(AES.decryptBase64(encryptsBase64, password, "UTF-8")));
+        assertEquals(sourceTxt, new String(AES.decryptBase64ToString(encryptsBase64, password, "UTF-8")));
     }
 
     @Test
     public void decrypt() throws Exception {
+    
     }
 
 }
