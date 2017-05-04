@@ -1,7 +1,10 @@
 package com.cloudin.commons.security;
 
 import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -80,13 +83,9 @@ public class AES {
      */
     public static byte[] encrypt(byte[] content, byte[] password) {
         try {
-            KeyGenerator generator = KeyGenerator.getInstance("AES");
-            generator.init(128, new SecureRandom(password));
-            SecretKey secretKey = generator.generateKey();
-
-            Cipher cp = Cipher.getInstance("AES");
-            cp.init(Cipher.ENCRYPT_MODE, secretKey);
-
+            SecretKeySpec skeySpec = new SecretKeySpec(password, "AES");
+            Cipher cp = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cp.init(Cipher.ENCRYPT_MODE, skeySpec, new IvParameterSpec(new byte[16]));
             return cp.doFinal(content);
 
         } catch (NoSuchAlgorithmException e) {
@@ -98,6 +97,8 @@ public class AES {
         } catch (BadPaddingException e) {
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
             e.printStackTrace();
         }
         return null;
@@ -174,12 +175,9 @@ public class AES {
      */
     public static byte[] decrypt(byte[] content, byte[] password) {
         try {
-            KeyGenerator generator = KeyGenerator.getInstance("AES");
-            generator.init(128, new SecureRandom(password));
-            SecretKey secretKey = generator.generateKey();
-
-            Cipher cp = Cipher.getInstance("AES");
-            cp.init(Cipher.DECRYPT_MODE, secretKey);
+            SecretKeySpec skeySpec = new SecretKeySpec(password, "AES");
+            Cipher cp = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cp.init(Cipher.DECRYPT_MODE, skeySpec, new IvParameterSpec(new byte[16]));
 
             return cp.doFinal(content);
         } catch (NoSuchAlgorithmException e) {
@@ -191,6 +189,8 @@ public class AES {
         } catch (BadPaddingException e) {
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
             e.printStackTrace();
         }
         return null;

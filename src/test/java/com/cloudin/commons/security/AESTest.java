@@ -15,8 +15,12 @@ public class AESTest {
         String sourceTxt = "中国china密码password~！@#￥%……&*（）——+";
         String password = "中国china密码password~！@#￥%……&*（）——+";
         String expectedTxt = "VI5vW0qvjJa/QBlxNTg7glgvnWuNcJiEuXQddUPyg4MuLRoDTvIay5gigupJact4g1xiWkEaHU+vNEeZ/lRzUw==";
-
-
+    
+    
+        String t1 = AES.encryptToBase64("管理员", "EDVKDnKe#ycH(|LE");
+        System.out.println(t1);
+        System.out.println(AES.decryptBase64ToString(t1, "EDVKDnKe#ycH(|LE", "UTF-8"));
+        
         assertEquals(expectedTxt, Base64.getEncoder().encodeToString(AES.encrypt(sourceTxt.getBytes(), password.getBytes())));
         assertEquals(expectedTxt, Base64.getEncoder().encodeToString(AES.encrypt(sourceTxt, password)));
         assertEquals(expectedTxt, Base64.getEncoder().encodeToString(AES.encrypt(sourceTxt, password, "UTF-8")));
